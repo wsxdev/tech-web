@@ -1,0 +1,55 @@
+#top_parent {
+    display: flex;
+}
+
+#lib_icono_child_top {
+    align-self: flex-end;
+}
+
+#img_user {
+    padding-top: 25px;
+}
+
+#separar_libro_parent {
+    display: flex;
+    flex-direction: row;
+}
+
+#separar_libro_parent > div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+#one_input {
+    display: flex;
+    flex-direction: row;
+}
+
+#separar_libro_div {
+    display: flex;
+    flex-direction: column;
+}
+
+#prioridad_libro_div {
+    display: flex;
+    flex-direction: column;
+}
+
+#field_informacion {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+#prent_filtrar_tareas {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 24px;
+}
+
+#fecha {
+    align-self: flex-end;
+}
