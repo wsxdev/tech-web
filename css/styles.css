@@ -1,55 +1,418 @@
-#top_parent {
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    color: #242a35;
+    background: #f5f6f8;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
     display: flex;
-}
-
-#lib_icono_child_top {
-    align-self: flex-end;
-}
-
-#img_user {
-    padding-top: 25px;
-}
-
-#separar_libro_parent {
-    display: flex;
-    flex-direction: row;
-}
-
-#separar_libro_parent > div {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    gap: 16px;
-}
-
-#one_input {
-    display: flex;
-    flex-direction: row;
-}
-
-#separar_libro_div {
-    display: flex;
+    width: 236px;
     flex-direction: column;
+    padding: 24px 18px;
+    border-right: 1px solid #ddd;
+    background: white;
 }
 
-#prioridad_libro_div {
+.brand,
+.nav-link,
+.page-header,
+.overview-panel,
+.list-heading,
+.book-item {
     display: flex;
-    flex-direction: column;
-}
-
-#field_informacion {
-    display: flex;
-    flex-direction: row;
+    align-items: center;
     gap: 12px;
 }
 
-#prent_filtrar_tareas {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-    gap: 24px;
+.brand {
+    padding: 8px;
+    color: inherit;
+    text-decoration: none;
 }
 
-#fecha {
-    align-self: flex-end;
+.brand-icon {
+    width: 42px;
+    height: 42px;
+}
+
+.brand-copy,
+.sidebar-nav,
+.book-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-copy,
+.sidebar-nav {
+    gap: 7px;
+}
+
+.sidebar-nav {
+    margin-top: 32px;
+}
+
+.nav-link {
+    min-height: 42px;
+    padding: 0 12px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav-link:hover,
+.nav-link.is-active,
+.filter-button.is-selected {
+    color: #5865d8;
+    background: #eef0ff;
+}
+
+.nav-icon,
+.nav-symbol,
+.nav-symbol img {
+    width: 18px;
+    height: 18px;
+}
+
+.sidebar-note {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid #ddd;
+}
+
+.main-content {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    margin-left: 236px;
+    padding: 28px 48px 0;
+}
+
+.page-header,
+.dashboard,
+.page-footer {
+    width: 100%;
+    max-width: 1060px;
+    align-self: center;
+}
+
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-heading,
+.filter-block,
+.stats-grid,
+.book-details {
+    flex: 1;
+}
+
+.page-heading h1,
+.page-heading p,
+.panel h2,
+.list-heading h2 {
+    margin-top: 0;
+}
+
+.page-heading p,
+.list-heading p,
+.page-footer {
+    color: #666;
+}
+
+.profile-button,
+.menu-toggle,
+.button,
+.icon-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background: white;
+}
+
+.profile-button,
+.menu-toggle {
+    width: 42px;
+    height: 42px;
+    padding: 6px;
+    border-radius: 50%;
+}
+
+.profile-button img {
+    width: 28px;
+    height: 28px;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-toggle img {
+    width: 21px;
+    height: 21px;
+}
+
+.dashboard,
+.book-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.panel,
+.book-item {
+    border: 1px solid #ddd;
+    background: white;
+}
+
+.panel {
+    padding: 18px;
+}
+
+.book-form,
+.filter-buttons,
+.stats-grid {
+    display: flex;
+    gap: 10px;
+}
+
+.book-form {
+    align-items: flex-end;
+}
+
+.form-field {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+    min-width: 0;
+    height: 38px;
+}
+
+.button-primary {
+    color: white;
+    background: #5865d8;
+}
+
+.add-button {
+    white-space: nowrap;
+}
+
+.add-button img {
+    width: 12px;
+    height: 12px;
+}
+
+.stat-card {
+    display: flex;
+    min-height: 64px;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+}
+
+.overview-panel {
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.list-heading {
+    justify-content: space-between;
+}
+
+.book-list {
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.book-item {
+    min-height: 56px;
+    padding: 8px 10px;
+}
+
+.book-details {
+    min-width: 0;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.book-title {
+    overflow: hidden;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.book-date img,
+.icon-button img {
+    width: 15px;
+    height: 15px;
+}
+
+.book-date {
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.item-actions {
+    gap: 6px;
+    margin-left: auto;
+}
+
+.icon-button {
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+}
+
+.page-footer {
+    margin-top: auto;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.sidebar-backdrop {
+    display: none;
+}
+
+@media (max-width: 1023px) {
+    .sidebar {
+        display: none;
+        z-index: 2;
+        width: 280px;
+        max-width: 85%;
+    }
+
+    .sidebar.is-open {
+        display: flex;
+    }
+
+    .sidebar-backdrop:not([hidden]) {
+        position: fixed;
+        z-index: 1;
+        inset: 0;
+        display: block;
+        border: 0;
+        background: #0006;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .menu-toggle {
+        display: flex;
+        border-radius: 6px;
+    }
+
+    .page-heading {
+        text-align: center;
+    }
+
+    .add-button {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .main-content {
+        padding: 18px 24px 0;
+    }
+
+    .book-form {
+        flex-wrap: wrap;
+    }
+
+    .book-name-field,
+    .add-button {
+        flex-basis: 100%;
+    }
+
+    .overview-panel {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767px) {
+    .main-content {
+        padding: 14px 14px 0;
+    }
+
+    .page-header {
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .page-heading h1 {
+        font-size: 18px;
+    }
+
+    .page-heading p,
+    .list-heading p {
+        display: none;
+    }
+
+    .profile-button,
+    .menu-toggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .panel {
+        padding: 14px;
+    }
+
+    .book-form,
+    .overview-panel {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .filter-buttons {
+        flex-direction: column;
+    }
+
+    .filter-button {
+        width: 100%;
+    }
+
+    .book-item {
+        flex-wrap: wrap;
+    }
+
+    .book-details {
+        flex-basis: calc(100% - 40px);
+    }
+
+    .book-date {
+        margin-left: 28px;
+    }
+}
+
+[hidden] {
+    display: none !important;
 }

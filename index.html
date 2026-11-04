@@ -1,237 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="theme-color" content="#f5f6f8">
+    <title>Librería Económica</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
 </head>
 
 <body>
+    <div class="app-layout">
+        <aside class="sidebar" id="sidebar" aria-label="Menú principal">
+            <a class="brand" href="#inicio">
+                <img src="img/libro.webp" alt="" class="brand-icon">
+                <span class="brand-copy">
+                    <strong>Mis Libros</strong>
+                    <small>Organiza tu lectura</small>
+                </span>
+            </a>
 
-    <main>
-        <header>
+            <nav class="sidebar-nav" aria-label="Secciones">
+                <a class="nav-link is-active" href="#lista-libros" aria-current="page">
+                    <span class="nav-symbol" aria-hidden="true"> <img src="img/Hamburger_icon.svg.webp" alt="" width="20px" height="20px"> </span>
+                    <span>Todos mis libros</span>
+                </a>
+                <a class="nav-link" href="#pendientes">
+                    <img src="img/icons-clock-48.png" alt="" class="nav-icon">
+                    <span>Pendientes</span>
+                </a>
+                <a class="nav-link" href="#entregados">
+                    <img src="img/icons-check-50.png" alt="" class="nav-icon">
+                    <span>Entregados</span>
+                </a>
+                <a class="nav-link" href="#fecha">
+                    <img src="img/calendar.png" alt="" class="nav-icon">
+                    <span>Calendario</span>
+                </a>
+                <a class="nav-link" href="#estadisticas">
+                    <img src="img/icons-bar-chart-64.png" alt="" class="nav-icon">
+                    <span>Estadísticas</span>
+                </a>
+                <a class="nav-link" href="#ajustes">
+                    <img src="img/icons-settings-48.png" alt="" class="nav-icon">
+                    <span>Ajustes</span>
+                </a>
+            </nav>
 
+            <div class="sidebar-note">
+                <p>La disciplina es el puente entre tus metas y tus logros.</p>
+            </div>
+        </aside>
 
-        </header>
+        <button class="sidebar-backdrop" id="sidebar-backdrop" type="button" aria-label="Cerrar menú" hidden></button>
 
+        <main class="main-content" id="inicio">
+            <header class="page-header">
+                <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false">
+                    <img src="img/Hamburger_icon.svg.webp" alt="">
+                </button>
+                <div class="page-heading">
+                    <h1>Librería Económica</h1>
+                    <p>Compra, lee o alquila un libro aquí</p>
+                </div>
+                <button class="profile-button" type="button" aria-label="Perfil">
+                    <img src="img/perfil_icon.png" alt="">
+                </button>
+            </header>
 
-        <!-- <div class="contenedor-principal">
+            <div class="dashboard">
+                <section class="panel add-panel" aria-labelledby="add-title">
+                    <h2 id="add-title">Separa tu libro con anticipación</h2>
+                    <form class="book-form">
+                        <div class="form-field book-name-field">
+                            <label for="separar_libro">Nombre del libro</label>
+                            <input type="text" id="separar_libro" name="book" placeholder="¿Qué libro necesitas?">
+                        </div>
+                        <div class="form-field">
+                            <label for="prioridad_libro">Prioridad</label>
+                            <select id="prioridad_libro" name="priority">
+                                <option>Media</option>
+                                <option>Alta</option>
+                                <option>Baja</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <label for="fecha">Fecha</label>
+                            <input type="date" id="fecha" name="date">
+                        </div>
+                        <button class="button button-primary add-button" type="button">
+                            <img src="img/mas_icon.png" alt="">
+                            <span>Apartar libro</span>
+                        </button>
+                    </form>
+                </section>
 
-            <aside class="menu-lateral">
-                <div class="logo">MiSitio</div>
-                <nav>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#portafolio">Portafolio</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
+                <section class="panel overview-panel" id="estadisticas" aria-labelledby="filter-title">
+                    <div class="filter-block">
+                        <h2 id="filter-title">Filtrar libros</h2>
+                        <div class="filter-buttons" role="group" aria-label="Filtrar libros">
+                            <button class="button filter-button is-selected" type="button"> <img src="img/Hamburger_icon.svg.webp" alt="" width="10px" height="10px"> <span>Todos</span></button>
+                            <button class="button filter-button" type="button"> <img src="img/icons-clock-48.png" alt="" width="10px" height="10px"> <span>Pendientes</span></button>
+                            <button class="button filter-button" type="button"> <img src="img/icons-check-50.png" alt="" width="10px" height="10px"> <span>Entregados</span></button>
+                        </div>
+                    </div>
+                    <div class="stats-grid" aria-label="Resumen de libros">
+                        <div class="stat-card">
+                            <span>Total</span>
+                            <strong>10</strong>
+                        </div>
+                        <div class="stat-card" id="pendientes">
+                            <span>Pendientes</span>
+                            <strong>7</strong>
+                        </div>
+                        <div class="stat-card" id="entregados">
+                            <span>Entregados</span>
+                            <strong>50</strong>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="panel list-panel" id="lista-libros" aria-labelledby="list-title">
+                    <div class="list-heading">
+                        <div>
+                            <h2 id="list-title">Lista de libros pendientes</h2>
+                            <p>Tu lectura, organizada en un solo lugar</p>
+                        </div>
+                        <span class="list-count">5 libros</span>
+                    </div>
+
+                    <ul class="book-list">
+                        <li class="book-item">
+                            <input type="checkbox" aria-label="Marcar Libro 1 como entregado">
+                            <div class="book-details">
+                                <span class="book-title">Libro 1</span>
+                                <span class="priority priority-medium">Media</span>
+                            </div>
+                            <span class="book-date"><img src="img/calendar.png" alt="">21/02/2026</span>
+                            <div class="item-actions">
+                                <button class="icon-button" type="button" aria-label="Marcar Libro 1 como entregado"><img src="img/check.png" alt=""></button>
+                                <button class="icon-button" type="button" aria-label="Eliminar Libro 1"><img src="img/trush.png" alt=""></button>
+                            </div>
+                        </li>
+                        <li class="book-item">
+                            <input type="checkbox" aria-label="Marcar Libro 2 como entregado">
+                            <div class="book-details">
+                                <span class="book-title">Libro 2</span>
+                                <span class="priority priority-high">Alta</span>
+                            </div>
+                            <span class="book-date"><img src="img/calendar.png" alt="">12/03/2026</span>
+                            <div class="item-actions">
+                                <button class="icon-button" type="button" aria-label="Marcar Libro 2 como entregado"><img src="img/check.png" alt=""></button>
+                                <button class="icon-button" type="button" aria-label="Eliminar Libro 2"><img src="img/trush.png" alt=""></button>
+                            </div>
+                        </li>
+                        <li class="book-item">
+                            <input type="checkbox" aria-label="Marcar Libro 3 como entregado">
+                            <div class="book-details">
+                                <span class="book-title">Libro 3</span>
+                                <span class="priority priority-low">Baja</span>
+                            </div>
+                            <span class="book-date"><img src="img/calendar.png" alt="">21/02/2026</span>
+                            <div class="item-actions">
+                                <button class="icon-button" type="button" aria-label="Marcar Libro 3 como entregado"><img src="img/check.png" alt=""></button>
+                                <button class="icon-button" type="button" aria-label="Eliminar Libro 3"><img src="img/trush.png" alt=""></button>
+                            </div>
+                        </li>
+                        <li class="book-item">
+                            <input type="checkbox" aria-label="Marcar Libro 4 como entregado">
+                            <div class="book-details">
+                                <span class="book-title">Libro 4</span>
+                                <span class="priority priority-low">Baja</span>
+                            </div>
+                            <span class="book-date"><img src="img/calendar.png" alt="">12/03/2026</span>
+                            <div class="item-actions">
+                                <button class="icon-button" type="button" aria-label="Marcar Libro 4 como entregado"><img src="img/check.png" alt=""></button>
+                                <button class="icon-button" type="button" aria-label="Eliminar Libro 4"><img src="img/trush.png" alt=""></button>
+                            </div>
+                        </li>
+                        <li class="book-item">
+                            <input type="checkbox" aria-label="Marcar Libro 5 como entregado">
+                            <div class="book-details">
+                                <span class="book-title">Libro 5</span>
+                                <span class="priority priority-medium">Media</span>
+                            </div>
+                            <span class="book-date"><img src="img/calendar.png" alt="">12/03/2026</span>
+                            <div class="item-actions">
+                                <button class="icon-button" type="button" aria-label="Marcar Libro 5 como entregado"><img src="img/check.png" alt=""></button>
+                                <button class="icon-button" type="button" aria-label="Eliminar Libro 5"><img src="img/trush.png" alt=""></button>
+                            </div>
+                        </li>
                     </ul>
-                </nav>
-            </aside>
-
-
-            <main class="contenido">
-                <h1>Bienvenido</h1>
-                <p>Este es el área de contenido principal de la página.</p>
-            </main>
-
-        </div> -->
-
-
-
-
-        <div id="top_parent">
-            <div id="lib_icono_child_top">
-                <h2>Libería Enconómica</h2>
-                <p>Compra, lee o alquila un libro aquí</p>
+                </section>
             </div>
 
-            <div id="img_top_user">
-                <img id="img_user" src="img/perfil_icon.png" alt="" width="40px" height="40px">
-            </div>
-
-        </div>
-
-
-        <div>
-
-            <fieldset>
-                <p>Separa tu libro con anticipación</p>
-                <div id="separar_libro_parent">
-
-                    <div>
-                        <div id="one_input">
-                            <div id="separar_libro_div">
-                                <label for="separar_libro">Nombre del libro</label>
-                                <input type="text" id="separar_libro" width="50px" placeholder="¿Qué libro necesitas?">
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <div id="prioridad_libro_div">
-                                <label for="prioridad_libro">Prioridad</label>
-                                <input type="" id="prioridad_libro" width="50px">
-                            </div>
-
-                        </div>
-                        
-
-                        <div>
-                            <div>
-                                <label for="fecha">Fecha</label>
-                                <input type="date" id="fecha">
-                            </div>
-                        </div>
-
-                        <div>
-                            <button>
-                                <img src="img/mas_icon.png" alt="" width="10px" height="10px">
-                                <label for="">Apartar Libro</label>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-
-            <br>
-
-            <fieldset>
-
-                <div id="prent_filtrar_tareas">
-
-                    <div>
-
-                        <div>
-                            <p>Filtrar Libros</p>
-                            <button>
-                                Todos
-                            </button>
-
-                            <button>
-                                Pendientes
-                            </button>
-
-                            <button>
-                                Entregados
-                            </button>
-
-                        </div>
-                    </div>
-
-                    <div id="field_informacion">
-                        <fieldset>
-                            <div>
-                                <p>Total</p>
-                                <p>10</p>
-                            </div>
-                        </fieldset>
-                        
-                        <fieldset>
-                            <div>
-                                <p>Pendientes</p>
-                                <p>7</p>
-                            </div>
-                        </fieldset>
-
-                        <fieldset>
-                            <div>
-                                <p>Entregados</p>
-                                <p>50</p>
-                            </div>
-                        </fieldset>
-                    </div>
-
-                </div>
-
-            </fieldset>
-
-            <br>
-
-            <fieldset>
-                <p>Lista de Libros Pendientes</p>
-
-                <div>
-                    <fieldset>
-                        <input type="radio">
-                        <label for="radio">Libro 1</label>
-                        <img src="img/calendar.png" alt="" width="10px" height="10px">
-                        <label id="fecha">21/02/26</label>
-                        <button>
-                            <img src="img/check.png" alt="" width="10px" height="10px">
-                        </button>
-                        <button>
-                            <img src="img/trush.png" alt="" width="10px" height="10px">
-                        </button>
-                    </fieldset>
-
-                    <fieldset>
-                        <input type="radio">
-                        <label for="radio">Libro 2</label>
-                        <img src="img/calendar.png" alt="" width="10px" height="10px">
-                        <label id="fecha">12/03/26</label>
-                        <button>
-                            <img src="img/check.png" alt="" width="10px" height="10px">
-                        </button>
-                        <button>
-                            <img src="img/trush.png" alt="" width="10px" height="10px">
-                        </button>
-                    </fieldset>
-
-                    <fieldset>
-                        <input type="radio">
-                        <label for="radio">Libro 3</label>
-                        <img src="img/calendar.png" alt="" width="10px" height="10px">
-                        <label id="fecha">21/02/26</label>
-                        <button>
-                            <img src="img/check.png" alt="" width="10px" height="10px">
-                        </button>
-                        <button>
-                            <img src="img/trush.png" alt="" width="10px" height="10px">
-                        </button>
-                    </fieldset>
-
-                    <fieldset>
-                        <input type="radio">
-                        <label for="radio">Libro 4</label>
-                        <img src="img/calendar.png" alt="" width="10px" height="10px">
-                        <label id="fecha">12/03/26</label>
-                        <button>
-                            <img src="img/check.png" alt="" width="10px" height="10px">
-                        </button>
-                        <button>
-                            <img src="img/trush.png" alt="" width="10px" height="10px">
-                        </button>
-                    </fieldset>
-
-                    <fieldset>
-                        <input type="radio">
-                        <label for="radio">Libro 5</label>
-
-                        <img src="img/calendar.png" alt="" width="10px" height="10px">
-                        <label id="fecha">12/03/26</label>
-                        <button>
-                            <img src="img/check.png" alt="" width="10px" height="10px">
-                        </button>
-                        <button>
-                            <img src="img/trush.png" alt="" width="10px" height="10px">
-                        </button>
-                    </fieldset>
-
-                </div>
-            </fieldset>
-
-        </div>
-
-
-        <footer>
-            <p>@2026 William & Veronica</p>
-        </footer>
-
-
-    </main>
-
+            <footer class="page-footer">
+                <p>@2026 William &amp; Veronica</p>
+            </footer>
+        </main>
+    </div>
 </body>
 
 </html>
